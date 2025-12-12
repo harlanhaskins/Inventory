@@ -1100,10 +1100,11 @@
 
             // Simplified lifespan text
             if (data.age !== null) {
+                const ageText = data.age === 0 ? 'Brand new' : `${data.age} years old`;
                 if (status === 'critical') {
-                    lifespanText = `${data.age} years old (installed ${product.yearInstalled})<br>Past estimated lifespan - consider replacing`;
+                    lifespanText = `${ageText} (installed ${product.yearInstalled})<br>Past estimated lifespan - consider replacing`;
                 } else if (status === 'warning' || status === 'good') {
-                    lifespanText = `${data.age} years old (installed ${product.yearInstalled})<br>Replace in ${data.lifespanRemainingMin}-${data.lifespanRemainingMax} years`;
+                    lifespanText = `${ageText} (installed ${product.yearInstalled})<br>Replace in ${data.lifespanRemainingMin}-${data.lifespanRemainingMax} years`;
                 }
             } else {
                 const [min, max] = product.estimatedLifespanYears;
